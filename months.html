@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Answers by Month</title>
+
+    <link rel="icon" href="images/fav.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Namdhinggo:wght@400;500;600;700;800&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<style>
+
+    body {
+        margin: 0;
+
+        background-color: #ECECEC;
+    }
+
+    #JS {
+        width: 77vw;
+        margin-left: 20vw;
+        margin-right: auto;
+        float: left;
+
+        //transition: 0.3s;
+    }
+
+    #returnButton, returnButton:visited, returnButton:active, #sideButton {
+        position: fixed;
+        left: 0;
+        height: 4vw;
+        width: 13vw;
+        min-height: 50px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: calc(20px + 1.3vw);
+
+        background-color: yellow;
+        color: blue;
+
+        //transition: 0.3s;
+    }
+    #returnButton:hover, #sideButton:hover {
+        background-color: #FFEC00;
+        color: #002AE5;
+    }
+
+    #sideButton {
+        left: 13vw;
+        width: 5vw;
+        border: none;
+        z-index: 1;
+    }
+
+    #tabs-div {
+        overflow-y: scroll;
+
+		position: fixed;
+		width: 18vw;
+		height: 88vh;
+		top: 12vh;
+		left: 0;
+
+		-ms-overflow-style: none;  /* IE and Edge */
+  		scrollbar-width: none;  /* Firefox */
+
+  		//transition: 0.3s;
+	}
+	#tabs-div::-webkit-scrollbar {
+		display: none; /* Chrome, Safari and Opera */
+	}
+
+	.tab {
+		background-color: #F3D250;
+		color: black;
+
+		font-size: calc(5px + 1vw);
+		font-family:'Merriweather';
+
+		padding: 1vw;
+		margin-bottom: 1vw;
+	}
+
+	p {
+	    font-size: calc(12px + 1vw);
+	    margin: 0;
+	    padding: 0;
+	}
+
+    .answerBlock {
+        border-radius: 25px;
+    }
+
+    .name {
+        color: black;
+        background-color: #F78888;
+        background-color: #65ABF3;
+
+        border-radius: 10px;
+        padding-left: 1vw;
+        padding-bottom: 0.1vw;
+        font-size: 60px;
+        font-family:'Merriweather';
+    }
+
+    .month {
+        color: black;
+        background-color: #90CCF4;
+
+        position: absolute;
+        border-radius: 5px;
+        margin-top:-10px;
+        margin-left: 1vw;
+        padding-left: 6px;
+        padding-right: 6px;
+        padding-bottom: 4px;
+        font-size: 18px;
+        font-family:'Roboto Slab';
+
+    }
+
+    .answer {
+        color: #5DA2D5;
+        background-color: #E5E5E5;
+
+        border-radius: 10px;
+        padding: 10px;
+        padding-top: 20px;
+        //margin-top: min(50px, 2.6vh);
+        font-family:'Roboto';
+    }
+
+</style>
+
+<body>
+
+    <div id="sidebar">
+        <a href="index.html"><div id="returnButton">back</div></a>
+        <button id="sideButton" onClick="toggle()"><</button>
+
+        <div id="tabs-div">
+            <div class="tab" style="background-color:#F4CB90"><p>September</p>If you couldn’t go into STEM, what would you do as a career?</div>
+            <div class="tab" style="background-color:#F49090"><p>October</p>If you could transmit a sentence into the minds of everyone alive and who will ever live, what would you say?</div>
+            <div class="tab" style="background-color:#C590F4"><p>November</p>The Question of the Month seeks to create an environment where all people can share in their appreciation of sweet desserts. Describe, in detail, your top choice of ice cream flavor and how it has shaped who you are today.</div>
+            <div class="tab" style="background-color:#9590F4"><p>December</p>If you were given $1,000,000,000 dollars to invent or research anything, what would you invent/research?</div>
+            <div class="tab" style="background-color:#90BFF4"><p>January</p>What in life are you most proud of?</div>
+            <div class="tab" style="background-color:#F490E6"><p>February</p>If you could give someone else a catchphrase, what would it be and who would you give it to?</div>
+            <div class="tab" style="background-color:#90F495"><p>March</p>Throughout their lives, people get to interact with and learn about a variety of topics and activities. From what you've experienced/ done, can you give a brief explanation of some concept/thing that you think is really cool?</div>
+            <div class="tab" style="background-color:#90F4EC"><p>April</p>Do you like sandwiches?</div>
+            <div class="tab" style="background-color:#CBF490"><p>May</p>Why do people do anything?</div>
+            <div class="tab" style="background-color:#F4F490"><p>June</p></div>
+            <br>
+        </div>
+    </div>
+
+    <div id="JS"></div>
+</body>
+
+<script>
+    window.onload = () => {
+
+        // AJAX FETCH CSV
+        fetch("idiot.csv")
+        .then(res => res.text())
+        .then(csv => {
+
+            const names = ['Abby', 'Adam Smith', 'Adrian', 'Andrew', 'Antonette', 'Arian', 'Bokei', 'Bolun', 'Breanna', 'Caitlyn', 'Cassie', 'Chris', 'Curren', 'Dhruv', 'E&M Corner', 'Efim & Matthew', 'Emi', 'Ethan', 'Ewan', 'Grace', 'Haley', 'Ila', 'Jason', 'Joyce', 'Kaitlyn', 'Karan', 'Liza', 'Marcos', 'Marley', 'Megan', 'Meghna', 'Mr. Dunlea', 'Mr. McLaughlin', 'Mr. Shakked', 'Mrs. Kravchak', 'Ms. Eibeck', 'Ms. Novet', 'Ms. Peck', 'Nova', 'Peyton', 'Preena', 'Rachel', 'Rebecca', 'Riya', 'Robert', 'Ryan', 'Sachin', 'Sarika', 'Sarika and Dhruv', 'Shravan', 'Sophia', 'Srika', 'Stephen', 'Tammy', 'Yatish', 'Yousef'];
+            const colors = ['#F4CB90', '#F4CB90', '#F49090', '#C590F4', '#9590F4', '#90BFF4', '#F490E6', '#90F495', '#90F4EC', '#CBF490', '#F4F490'];
+
+            // SPLIT BY ROWS
+            let rows = csv.split("\r\n");
+
+            var content = document.getElementById('JS');
+
+            // LOOP THROUGH ROWS + SPLIT COLUMNS
+            var colIndex, rowIndex;
+
+            rowIndex = 0;
+            for(let row of rows) {
+
+                let cols = row.match(/(?:\"([^\"]*(?:\"\"[^\"]*)*)\")|([^\",]+)/g);
+                if(cols == null) 
+                    continue;
+
+                colIndex = 0;
+                var person = document.createElement('div');
+                person.className = "answerBlock";
+                for (let col of cols) {
+
+                    if(rowIndex == 0) // skip header row
+                        continue;
+
+                    var qAnswer = col.replace(/(^"|"$)/g, "");
+                    if(qAnswer == " ") // skip no response answers
+                    {
+                        colIndex++;
+                        continue;
+                    }
+
+                    if(colIndex != 0) // add month for each answer
+                        var headElement = document.createElement('div');
+
+                    // get month name corresponding to column in spreadsheet
+                    var monthName = names[colIndex - 1]; // idk why this one needs -1 and the other one doesn't, i forgot how this works
+
+                    // add month for each answer
+                    if(colIndex != 0)
+                    {
+                        headElement.className = "month";
+                        headElement.appendChild(document.createTextNode(monthName));
+                        person.appendChild(headElement);
+                    }
+
+                    // add each person's name & answer
+                    var textElement = document.createElement('div');
+                    if(colIndex==0) {
+                        //textElement.id = qAnswer;
+                        textElement.className = "name";
+                        textElement.style.backgroundColor = colors[rowIndex];
+                    } else {
+                        textElement.className = "answer";
+                    }
+                    textElement.appendChild(document.createTextNode(qAnswer));
+                    person.appendChild(textElement);
+
+                    person.appendChild(document.createElement('br'));
+                    colIndex++;
+                }
+                content.appendChild(person);
+                content.appendChild(document.createElement('br'));
+                content.appendChild(document.createElement('br'));
+                rowIndex++;
+            }
+        });
+    };
+</script>
+<script>
+    // show & hide side bar (super scuffed)
+    function toggle() {
+        if(document.getElementById("sideButton").textContent === ">") {
+            document.getElementById("sideButton").textContent = "<";
+            document.getElementById("sideButton").style.left = "13vw";
+            document.getElementById("returnButton").style.width = "13vw";
+            document.getElementById("JS").style.width = "77vw";
+            document.getElementById("JS").style.marginLeft = "20vw";
+        }
+        else  {
+            document.getElementById("sideButton").textContent = ">";
+            document.getElementById("sideButton").style.left = "0";
+            document.getElementById("returnButton").style.width = "0";
+            document.getElementById("JS").style.width = "94vw";
+            document.getElementById("JS").style.marginLeft = "3vw";
+        }
+    }
+</script>
+
+</html>
