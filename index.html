@@ -3,203 +3,144 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-  <link rel="icon" href="images/fav.png">
+    <title>QOTM - Home</title>
+    <link rel="icon" href="images/fav.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Namdhinggo:wght@400;500;600;700;800&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
 <style>
-  body {
-    background-color: #F7F4EA;
-    min-height: 100vh;
-  }
+    body {
+        background-color: #F9F9F9;
+    }
 
-  .title {
-    text-align: center;
-  }
+    #header {
+        background-color: #E5E5E5;
+        color: black;
 
-  .button {
-    background-color: blue;
-    width: 20vw;
+        display: flex;
+        position: fixed;
 
-    color: white;
-    font-size: 4vw;
-    text-align: center;
-    padding: 1vw;
-  }
+        top:0;
+        left: 0;
+    }
+    #header a:link, #header a:visited {
+        color:black;
+        text-decoration: none;
 
-  .button a:link, .button a:visited { color: white;}
+        border-style: solid;
+        border-width: 1px;
+        border-color: #D1D1D1;
+    }
+    .headerButton {
+        width: 33.33vw;
+        padding-top: 12px;
+        padding-bottom: 12px;
 
-  .button:hover {
-    background-color: mediumblue;
-  }
+        text-align: center;
+        font-family: Namdhinggo;
+    }
+    .headerButton:hover { background-color: #EEEEEE; }
 
-  .flexBig {
-    display: flex;
-    justify-content: center;
-    gap: 5vw;
-  }
-  .flex {
-    text-align: center;
-  }
+    .title, .year {
+        text-align: center;
+        font-family:'Merriweather';
+        font-size: 10vw;
+    }
+    .year {
+        font-size:3vw;
+    }
 
-  ol, ul {
-  display: inline-block;
-  text-align: left;
-  }
+    .month {
+        color: black;
+        background-color: #90CCF4;
 
-  .matList {
-    margin-top: -10px;
-  }
+        border-radius: 5px;
+        padding-top: 6px;
+        padding-bottom: 8px;
+        padding-left: 8px;
+        padding-right: 8px;
+        font-size: calc(12px + 1.5vw);;
+        font-family:'Roboto Slab';
+    }
+    .monthName {    font-size: 5vw;    }
+    .leftMonth {    margin-left: 1vw;   width: 70vw;    }
+    .rightMonth {   text-align: right;  margin-left: auto;  margin-right: 1vw;  width: 70vw;    }
+
+    .September { background-color: #F4CB90}
+    .October { background-color: #F49090 }
+    .November { background-color: #C590F4 }
+    .December { background-color: #9590F4 }
+    .January { background-color: #90BFF4 }
+    .February { background-color: #F490E6 }
+    .March { background-color: #90F495 }
+    .April { background-color: #90F4EC }
+    .May { background-color: #CBF490 }
+    .June { background-color: #F4F490 }
+
+    .month a { text-decoration:none; }
+    .month a:hover {   color:#004DFF;    }
+    .month a:visited:hover {   color:#9800AB;  }
 
 </style>
 
 <body>
-  <div class="title">
-    <h1>Erica's QOTM</h1>
-    <h2>2023 - 2024</h2>
-    <h3><a href="quick.html">Index Navigation</a></h3>
-    <br>
-    <h1>View by</h1>
-  </div>
-
-  <div style="margin:auto; width:60vw">
-    <a href="months.html"><div class="button" style="float:left;">Month</div></a>
-    <a href="people.html"><div class="button" style="float:right">Person</div></a>
-  </div>
-
-  <br><br><br><br><br><br><br><br><br>
-<div class="title">
-
-</div>
-
-  <div class="flexBig">
-    <div class="flex">
-      <h1>Big Numbers</h1>
-    <p>Most answers:</p>
-    <ol>
-      <li><a href="people.html#Bolun">Bolun - all months</a></li>
-      <li><a href="people.html#Ethan">Ethan - all months</a></li>
-      <li><a href="people.html#Ewan">Ewan - all months</a></li>
-      <li><a href="people.html#Kaitlyn">Kaitlyn - all months</a></li>
-      <li><a href="people.html#Yatish">Yatish - all months</a></li>
-      <li><a href="people.html#Andrew">Andrew - 8 months (Sep, Nov-May)</a></li>
-      <li><a href="people.html#Riya">Riya - 8 months (Sep-Jan, Mar-May)</a></li>
-      <li><a href="people.html#Haley">Haley - 8 months (Sep-Oct, Dec-May)</a></li>
-      <li><a href="people.html#Bokei">Bokei - 8 months (Sep-Dec, Feb-May)</a></li>
-      <li><a href="people.html#Megan">Megan - 8 months (Oct-May)</a></li>
-    </ol>
-    <p>Longest answers:</p>
-    <ol>
-      <li><a href="people.html#Bolun">Bolun - 405 characters (Nov)</a></li>
-      <li><a href="people.html#Stephen">Stephen - 358 characters (Mar)</a></li>
-      <li><a href="people.html#MrsKravchak">Mrs. Kravchak - 357 characters (Nov)</a></li>
-      <li><a href="people.html#Bokei">Bokei - 332 characters (Nov)</a></li>
-      <li><a href="people.html#Andrew">Andrew - 331 characters (Mar)</a></li>
-      <li><a href="people.html#Riya">Riya - 322 characters (Nov)</a></li>
-      <li><a href="people.html#Robert">Robert - 248 characters (Nov)</a></li>
-      <li><a href="people.html#Robert">Robert - 220 characters (Mar)</a></li>
-      <li><a href="people.html#Ewan">Ewan - 204 characters (Apr)</a></li>
-      <li><a href="people.html#Megan">Megan</a> / <a href="people.html#Haley">Haley</a> - 202 characters (Nov / Mar)</Li>
-    </ol>
-
-      <p>Most written overall:</p>
-    <ol>
-      <li><a href="people.html#Bolun">Bolun - 886 characters</a></li>
-      <li><a href="people.html#Riya">Riya - 787 characters</a></li>
-      <li><a href="people.html#Bokei">Bokei - 761 characters</a></li>
-      <li><a href="people.html#Andrew">Andrew - 713 characters</a></li>
-      <li><a href="people.html#Stephen">Stephen - 691 characters</a></li>
-      <li><a href="people.html#Robert">Robert - 622 characters</a></li>
-      <li><a href="people.html#Ewan">Ewan - 603 characters</a></li>
-      <li><a href="people.html#Haley">Haley - 558 characters</a></li>
-      <li><a href="people.html#Sophia">Sophia - 492 characters</a></li>
-      <li><a href="people.html#Rebecca">Rebecca - 478 characters</a></li>
-    </ol>
-
-  </div>
-    <div class="flex">
-      <h1>Matching Answers</h1>
-      <p>Businesswomen</p>
-      <ol class="matList">
-        <li><a href="months.html#September">Ila</a></li>
-        <li><a href="months.html#September">Haley</a></li>
-        <li><a href="months.html#September">Meghna</a></li>
-      </ol>
-      <p>Not-so Well Wishes</p>
-      <ol class="matList">
-        <li><a href="months.html#October">Kaitlyn</a></li>
-        <li><a href="months.html#October">Haley</a></li>
-        <li><a href="months.html#October">Shakked</a></li>
-      </ol>
-      <p>Ice Cream Buddies</p>
-      <ol class="matList">
-        <li><a href="months.html#November">Emi & Andrew - Rocky Road</a></li>
-        <li><a href="months.html#November">Rebecca & Megan & Adrian - Coffee</a></li>
-        <li><a href="months.html#November">Bokei & Sarika - Birthday Cake</a></li>
-        <li><a href="months.html#November">Joyce & Bolun - Cookies & Cream</a></li>
-      </ol>
-      <p>Energy Solutions</p>
-      <ol class="matList">
-        <li><a href="months.html#December">Stephen</a></li>
-        <li><a href="months.html#December">Eibeck</a></li>
-        <li><a href="months.html#December">Andrew</a></li>
-        <li><a href="months.html#December">Nova</a></li>
-      </ol>
-      <p>Fancatics</p>
-      <ol class="matList">
-        <li><a href="months.html#September">Sophia</a></li>
-        <li><a href="months.html#December">Joyce</a></li>
-        <li><a href="months.html#December">Grace</a></li>
-      </ol>
-      <p>Most Nerdy Answers</p>
-      <ol class="matList">
-        <li><a href="months.html#October">Preena on Van der Waal forces</a></li>
-        <li><a href="months.html#November">Bolun on Physics</a></li>
-        <li><a href="months.html#December">Ethan on Graphene</a></li>
-        <li><a href="months.html#March">Riya on Stem Cells</a></li>
-        <li><a href="months.html#March">Stephen on Space</a></li>
-        <li><a href="months.html#March">Andrew on Quantum Computing</a></li>
-        <li><a href="months.html#March">Shravan on Electricity&Magnetism</a></li>
-        <li><a href="months.html#March">Robert on Godel's proof</a></li>
-        <li><a href="months.html#March">Bokei on Chinese philosophy</a></li>
-      </ol>
+    <div id="header">
+        <a href="quick.html"><div class="headerButton">Quick Navigate</div></a>
+        <a href="months.html"><div class="headerButton">View ALL by Month</div></a>
+        <a href="people.html"><div class="headerButton">View ALL by Person</div></a>
     </div>
-  </div>
-  <br><br>
-  <div class="flexBig">
-    <div class="flex">
-      <h1>Special Responses</h1>
-      <ul>
-        <li>September - N/A</li>
-        <li><a href="people.html#MrShakked">October - Shakked</a></li>
-        <li><a href="people.html#MrsKravchak">November - Kravchak</a></li>
-        <li><a href="people.html#MsEibeck">December - Eibeck</a></li>
-        <li><a href="people.html#MsNovet">January - Novet</a></li>
-        <li><a href="people.html#MrMcLaughlin">February - McLaughlin</a></li>
-        <li><a href="people.html#MsPeck">March - Peck</a></li>
-        <li><a href="people.html#MrDunlea">April - Dunlea</a></li>
-        <li>May - if i can ever find him</li>
-        <li>June - TBD</li>
-      </ul>
-    </div>
-    <div class="flex">
-      <h1>Erica's Choice</h1>
-      <ul>
-        <li><a href="months.html#September">September - Ethan</a></li>
-        <li><a href="months.html#October">October - Antonette</a></li>
-        <li><a href="months.html#November">November - Riya</a></li>
-        <li><a href="months.html#December">December - Breanna</a></li>
-        <li><a href="months.html#January">January - Tammy</a></li>
-        <li><a href="months.html#February">February - Yatish</a></li>
-        <li><a href="months.html#March">March - Andrew</a></li>
-        <li><a href="months.html#April">April - Haley</a></li>
-        <li><a href="months.html#May">May - Andrew</a></li>
-        <li>June - TBD</li>
-      </ul>
-    </div>
-  </div>
-  <br><br><br><br><br>
-  <h4>as someone in cybersecurity, i feel compelled to say that this website is kind of a breach of personal information, publically available to any potential attackers, so...........idk pls be safe or something. don't put this info in your security questions</h4>
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <div class="year">2023 - 2024</div>
+    <div class="title">Erica's QOTM</div>
+    <br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="month leftMonth September"><div class="monthName">
+        September <a href="months.html#September">[→]</a></div>
+        If you couldn’t go into STEM, what would you do as a career?</div><br>
+
+    <div class="month rightMonth October"><div class="monthName">
+        <a href="months.html#October">[←]</a> October</div>
+        If you could transmit a sentence into the minds of everyone alive and who will ever live, what would you say?</div><br>
+
+    <div class="month leftMonth November"><div class="monthName">
+        November <a href="months.html#November">[→]</a></div>
+        The Question of the Month seeks to create an environment where all people can share in their appreciation of sweet desserts. Describe, in detail, your top choice of ice cream flavor and how it has shaped who you are today.</div><br>
+
+    <div class="month rightMonth December"><div class="monthName">
+        <a href="months.html#December">[←]</a> December</div>
+        If you were given $1,000,000,000 dollars to invent or research anything, what would you invent/research?</div><br>
+
+    <div class="month leftMonth January"><div class="monthName">
+        January <a href="months.html#January">[→]</a></div>
+        What in life are you most proud of?</div><br>
+
+    <div class="month rightMonth February"><div class="monthName">
+        <a href="months.html#February">[←]</a> February</div>
+        If you could give someone else a catchphrase, what would it be and who would you give it to?</div><br>
+
+    <div class="month leftMonth March"><div class="monthName">
+        March <a href="months.html#March">[→]</a></div>
+        Throughout their lives, people get to interact with and learn about a variety of topics and activities. From what you've experienced/done, can you give a brief explanation of some concept/thing that you think is really cool?</div><br>
+
+    <div class="month rightMonth April"><div class="monthName">
+        <a href="months.html#April">[←]</a> April</div>
+        Do you like sandwiches?</div><br>
+
+    <div class="month leftMonth May"><div class="monthName">
+        May <a href="months.html#May">[→]</a></div>
+        Why do people do anything?</div><br>
+
+    <div class="month rightMonth June"><div class="monthName">
+        <a href="months.html#June">[←]</a> June</div>
+        What's a memory that you remember as if it had happened yesterday?</div><br>
+
+    <br><br><br>
+    <a href="index2.html" style="font-size:30px;">This website is a work in progress because I was lazy and didn't finish in time... see special responses & shoutouts by clicking here</a>
+    <br><br><br>
 </body>
 
 </html>
